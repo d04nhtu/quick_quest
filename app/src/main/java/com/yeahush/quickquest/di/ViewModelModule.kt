@@ -3,6 +3,7 @@ package com.yeahush.quickquest.di
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.yeahush.quickquest.ui.home.category.CategoryListViewModel
+import com.yeahush.quickquest.ui.home.question.QuestionListViewModel
 import com.yeahush.quickquest.utilities.ViewModelProviderFactory
 import dagger.Binds
 import dagger.Module
@@ -17,6 +18,11 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(CategoryListViewModel::class)
     abstract fun bindCategoryListViewModel(categoryListViewModel: CategoryListViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(QuestionListViewModel::class)
+    abstract fun bindQuestionListViewModel(questionListViewModel: QuestionListViewModel): ViewModel
 
     @Binds
     abstract fun bindViewModelProviderFactory(

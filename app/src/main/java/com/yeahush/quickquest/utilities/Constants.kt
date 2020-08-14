@@ -1,19 +1,3 @@
-/*
- * Copyright 2018 Google LLC
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.yeahush.quickquest.utilities
 
 /**
@@ -21,3 +5,17 @@ package com.yeahush.quickquest.utilities
  */
 const val DATABASE_NAME = "quickquest-db"
 const val QUESTION_DATA_FILENAME = "questions.json"
+const val QUESTION_ORDINAL = "question-ordinal"
+const val QUESTION = "question"
+const val CATEGORY_KEY = "category-key"
+const val IS_MARKED = "is_marked"
+const val CHOICE = "choice"
+const val CHOICES_PREFERENCE = "choices_preference_storage"
+const val COMMON_PREFERENCE = "commo_preference_storage"
+const val FIRST_LAUNCH = "pref-is-first-launch"
+const val MARK_DIALOG = "mark-dialog"
+const val SCORE_DIALOG = "score-dialog"
+const val SCORE = "score"
+const val SCORE_DIALOG_FRAGMENT = 0
+const val MODE_REVIEW = "mode-review"
+const val ARG_ITEMS = "arg-items"

@@ -1,10 +1,12 @@
 package com.yeahush.quickquest.data
 
+import androidx.lifecycle.LiveData
+
 class QuestionRepository private constructor(
     private val questionDao: QuestionDao
 ) {
-
-    fun getCategoryAndQuestions() = questionDao.getCategoryAndQuestions()
+    fun getQuestionsOfCategory(categoryId: String): LiveData<CategoryAndQuestions> =
+        questionDao.getQuestionsOfCategory(categoryId)
 
     companion object {
         // For Singleton instantiation

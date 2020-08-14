@@ -3,4 +3,11 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+    <color name="background_light">#fafafa</color> <!-- grey 50 -->
+    <color name="background_dark">#ff333333</color>
+    <color name="mid_grey">#40808080</color>
+    <color name="light_grey">#fff5f5f5</color>
+    <color name="semi_gray">#979797</color>
+    <color name="shadow">#d0d8dc</color>
+    <color name="yellow">#ffffff00</color>
 </resources>

@@ -17,12 +17,6 @@ import javax.inject.Inject
 class CategoryListFragment : Fragment() {
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
-//    @Inject
-//    lateinit var viewModelFactory: CategoryListViewModelFactory
-
-//    private val viewModel: CategoryListViewModel by lazy {
-//        ViewModelProvider(this, viewModelFactory).get(CategoryListViewModel::class.java)
-//    }
 
     private val viewModel: CategoryListViewModel by viewModels {
         viewModelFactory
@@ -34,6 +28,7 @@ class CategoryListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val binding = FragmentCategoryListBinding.inflate(inflater, container, false)
+        binding.lifecycleOwner = viewLifecycleOwner
 
         val adapter = CategoryAdapter()
         binding.categoryList.adapter = adapter

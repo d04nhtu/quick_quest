@@ -2,12 +2,15 @@ package com.yeahush.quickquest.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Adapter
+import androidx.core.os.bundleOf
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.yeahush.quickquest.R
 import com.yeahush.quickquest.data.Category
 import com.yeahush.quickquest.databinding.ListItemCategoryBinding
+import com.yeahush.quickquest.utilities.CATEGORY_KEY
 
 class CategoryAdapter : ListAdapter<Category, RecyclerView.ViewHolder>(CategoryDiffCallback()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -29,7 +32,10 @@ class CategoryAdapter : ListAdapter<Category, RecyclerView.ViewHolder>(CategoryD
         init {
             binding.setClickListener {
                 binding.category?.let { category ->
-//                   TODO
+                    binding.root.findNavController().navigate(
+                        R.id.action_category_to_question,
+                        bundleOf(CATEGORY_KEY to category.categoryId)
+                    )
                 }
             }
         }

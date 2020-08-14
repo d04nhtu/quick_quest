@@ -24,8 +24,7 @@
         app:cardBackgroundColor="@android:color/holo_green_dark"
         app:cardCornerRadius="@dimen/card_corner_radius"
         app:cardElevation="@dimen/card_elevation"
-        app:cardPreventCornerOverlap="false"
-        >
+        app:cardPreventCornerOverlap="false">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -35,10 +34,10 @@
                 android:id="@+id/category_item_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_normal"
                 android:contentDescription="@string/a11y_category_item_image"
                 android:scaleType="centerCrop"
-                android:layout_marginTop="@dimen/margin_normal"
-                app:imageResource="@{category.imageResource}"
+                app:imageResource='@{context.resources.getIdentifier(category.image,"drawable",context.packageName)}'
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"

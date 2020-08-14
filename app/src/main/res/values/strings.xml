@@ -3,7 +3,19 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-
     <string name="a11y_category_item_image">Picture of category</string>
+    <string name="title_detail_question">Detail Question</string>
+    <string name="questions">Questions:</string>
+    <string name="slash">/</string>
+    <string name="title_questions">Question</string>
+    <string name="_50">50</string>
+    <string name="finish">Finish</string>
+    <string name="mark">Mark</string>
+    <string name="your_score">Your Score</string>
+    <string name="review">Review</string>
+    <string name="retry">Retry</string>
+    <string name="share_score">Share Score</string>
+    <string name="done">Done</string>
+    <string name="marked_questions">Marked questions</string>
 
 </resources>

@@ -1,10 +1,6 @@
 package com.yeahush.quickquest.data
 
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.ForeignKey
-import androidx.room.Index
-import androidx.room.PrimaryKey
+import androidx.room.*
 
 @Entity(
     tableName = "questions",
@@ -14,14 +10,13 @@ import androidx.room.PrimaryKey
     indices = [Index("category_id")]
 )
 data class Question(
-    @ColumnInfo(name = "category_id") val categoryId: String,
     val question: String,
     val optionA: String,
     val optionB: String,
     val optionC: String,
     val optionD: String,
-    val answer: String
-
+    val answer: String,
+    @ColumnInfo(name = "category_id") val categoryId: String
 ) {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")

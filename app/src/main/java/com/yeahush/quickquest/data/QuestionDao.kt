@@ -13,9 +13,8 @@ interface QuestionDao {
      * This query will tell Room to query both the [Category] and [Question] tables and handle
      * the object mapping.
      */
-    @Transaction
-    @Query("SELECT * FROM categories WHERE id IN (SELECT DISTINCT(category_id) FROM questions)")
-    fun getCategoryAndQuestions(): LiveData<List<CategoryAndQuestions>>
+    @Query("SELECT * FROM categories WHERE id = :categoryId")
+    fun getQuestionsOfCategory(categoryId: String): LiveData<CategoryAndQuestions>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(plants: List<Question>)

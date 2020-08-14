@@ -8,5 +8,5 @@ import androidx.room.PrimaryKey
 data class Category(
     @PrimaryKey @ColumnInfo(name = "id") val categoryId: String,
     val name: String,
-    val imageResource: Int
+    val image: String
 )
