@@ -13,6 +13,7 @@ import androidx.lifecycle.observe
 import com.google.android.material.tabs.TabLayoutMediator
 import com.yeahush.quickquest.R
 import com.yeahush.quickquest.databinding.FragmentQuestionListBinding
+import com.yeahush.quickquest.ui.base.BaseDialog
 import com.yeahush.quickquest.utilities.CATEGORY_KEY
 import com.yeahush.quickquest.utilities.MARK_DIALOG
 import com.yeahush.quickquest.utilities.SCORE
@@ -23,7 +24,7 @@ import javax.inject.Inject
 
 
 @AndroidEntryPoint
-class QuestionListFragment : Fragment(), View.OnClickListener, ScoreDialog.OnModeReviewListener,
+class QuestionListFragment : BaseDialog(), View.OnClickListener, ScoreDialog.OnModeReviewListener,
     MarkDialog.OnQuestionSelectedListener {
 
     @Inject

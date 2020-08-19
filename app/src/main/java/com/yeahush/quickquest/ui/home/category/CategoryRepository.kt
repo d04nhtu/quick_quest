@@ -1,4 +1,6 @@
-package com.yeahush.quickquest.data
+package com.yeahush.quickquest.ui.home.category
+
+import com.yeahush.quickquest.data.local.db.CategoryDao
 
 class CategoryRepository private constructor(private val categoryDao: CategoryDao) {
 

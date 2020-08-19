@@ -22,8 +22,8 @@
 
     <fragment
         android:id="@+id/dashboardScreen"
-        android:name="com.yeahush.quickquest.ui.dashboard.DashboardFragment"
+        android:name="com.yeahush.quickquest.ui.trivia.TriviaParamsFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_trivia_params" />
 
 </navigation>

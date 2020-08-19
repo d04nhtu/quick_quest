@@ -1,4 +1,4 @@
-package com.yeahush.quickquest.data
+package com.yeahush.quickquest.data.local.db
 
 import android.content.Context
 import androidx.room.Database
@@ -7,6 +7,8 @@ import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
+import com.yeahush.quickquest.data.local.model.Category
+import com.yeahush.quickquest.data.local.model.Question
 import com.yeahush.quickquest.utilities.DATABASE_NAME
 import com.yeahush.quickquest.workers.PrepopulateCategoriesWorker
 import com.yeahush.quickquest.workers.PrepopulateQuestionsWorker
@@ -23,8 +25,13 @@ abstract class AppDatabase : RoomDatabase() {
         private var instance: AppDatabase? = null
 
         fun getInstance(context: Context): AppDatabase {
-            return instance ?: synchronized(this) {
-                instance ?: buildDatabase(context).also { instance = it }
+            return instance
+                ?: synchronized(this) {
+                instance
+                    ?: buildDatabase(
+                        context
+                    )
+                        .also { instance = it }
             }
         }
 

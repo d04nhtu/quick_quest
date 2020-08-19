@@ -12,7 +12,7 @@
 
         <variable
             name="question"
-            type="com.yeahush.quickquest.data.Question" />
+            type="com.yeahush.quickquest.data.local.model.Question" />
 
         <variable
             name="isFinished"
@@ -79,7 +79,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bg_mark_button"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
                 android:onClick="@{clickListener}"
+                android:paddingStart="@dimen/margin_normal"
+                android:paddingTop="@dimen/margin_small"
+                android:paddingEnd="@dimen/margin_normal"
+                android:paddingBottom="@dimen/margin_small"
                 android:text="@string/mark"
                 android:textAllCaps="false"
                 android:visibility="@{isFinished ? View.INVISIBLE : View.VISIBLE}" />

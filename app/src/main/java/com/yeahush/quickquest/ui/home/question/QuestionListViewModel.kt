@@ -6,10 +6,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
-import com.yeahush.quickquest.data.CategoryAndQuestions
-import com.yeahush.quickquest.data.ChoicesPreferenceStorage
-import com.yeahush.quickquest.data.CommonPreferenceStorage
-import com.yeahush.quickquest.data.QuestionRepository
+import com.yeahush.quickquest.data.local.model.CategoryAndQuestions
+import com.yeahush.quickquest.data.local.prefs.ChoicesPreferenceStorage
+import com.yeahush.quickquest.data.local.prefs.CommonPreferenceStorage
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -28,8 +27,7 @@ class QuestionListViewModel @Inject constructor(
         private const val ONE_SECOND = 1000L
 
         // Total time for the game
-//        private const val COUNTDOWN_TIME = 3600000L
-        private const val COUNTDOWN_TIME = 6000L
+        private const val COUNTDOWN_TIME = 600000L
     }
 
     private val _catId = MutableLiveData<String?>()
@@ -131,8 +129,6 @@ class QuestionListViewModel @Inject constructor(
     }
 
     fun removeMarkQuestion(qNum: Int) = markList.remove(qNum)
-
-    fun containsMarkQuestion(qNum: Int) = markList.contains(qNum)
 
     fun setChoiceOfQuestion(qNum: Int, choice: String) {
         choicesPreference.setChoice(qNum.toString(), choice)

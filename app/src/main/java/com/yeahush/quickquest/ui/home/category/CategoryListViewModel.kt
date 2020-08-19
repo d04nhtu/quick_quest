@@ -2,8 +2,7 @@ package com.yeahush.quickquest.ui.home.category
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.yeahush.quickquest.data.Category
-import com.yeahush.quickquest.data.CategoryRepository
+import com.yeahush.quickquest.data.local.model.Category
 import javax.inject.Inject
 
 class CategoryListViewModel @Inject constructor(

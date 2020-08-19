@@ -10,4 +10,5 @@
     <color name="semi_gray">#979797</color>
     <color name="shadow">#d0d8dc</color>
     <color name="yellow">#ffffff00</color>
+    <color name="tab_indicator">#4FC3F7</color>
 </resources>

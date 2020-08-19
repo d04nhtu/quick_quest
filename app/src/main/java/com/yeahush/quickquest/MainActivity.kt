@@ -1,6 +1,7 @@
 package com.yeahush.quickquest
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
@@ -9,6 +10,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.yeahush.quickquest.utilities.setupWithNavController
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.activity_main.*
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -34,23 +36,16 @@ class MainActivity : AppCompatActivity() {
      * Called on first creation and when restoring state.
      */
     private fun setupBottomNavigationBar() {
-        val bottomNavigationView: BottomNavigationView = findViewById(R.id.nav_view)
-
         val navGraphIds =
             listOf(R.navigation.home, R.navigation.dashboard, R.navigation.notifications)
 
         // Setup the bottom navigation view with a list of navigation graphs
-        val controller = bottomNavigationView.setupWithNavController(
-            navGraphIds,
-            supportFragmentManager,
-            R.id.nav_host_container,
-            intent
+        val controller = nav_view.setupWithNavController(
+            navGraphIds, supportFragmentManager, R.id.nav_host_container, intent
         )
 
         // Whenever the selected controller changes, setup the action bar.
-        controller.observe(this, Observer { navController ->
-            setupActionBarWithNavController(navController)
-        })
+        controller.observe(this, Observer { setupActionBarWithNavController(it) })
         currentNavController = controller
     }
 

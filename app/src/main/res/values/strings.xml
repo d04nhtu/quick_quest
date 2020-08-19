@@ -17,5 +17,17 @@
     <string name="share_score">Share Score</string>
     <string name="done">Done</string>
     <string name="marked_questions">Marked questions</string>
-
+    <string name="hard">Hard</string>
+    <string name="medium">Medium</string>
+    <string name="easy">Easy</string>
+    <string name="true_false">True / False</string>
+    <string name="multiple_choice">Multiple Choice</string>
+    <string name="select_type">Select Type:</string>
+    <string name="select_difficulty">Select Difficulty:</string>
+    <string name="number_of_questions">Number of Questions:</string>
+    <string name="trivia_api">Trivia API</string>
+    <string name="ok_button">OK</string>
+    <string name="cancel_button">Cancel</string>
+    <string name="select_category">Select Category:</string>
+    <string name="submit">Submit</string>
 </resources>

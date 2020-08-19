@@ -1,7 +1,9 @@
-package com.yeahush.quickquest.data
+package com.yeahush.quickquest.data.local.db
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.yeahush.quickquest.data.local.model.CategoryAndQuestions
+import com.yeahush.quickquest.data.local.model.Question
 
 @Dao
 interface QuestionDao {

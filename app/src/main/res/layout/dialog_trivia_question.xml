@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yeahush.quickquest.ui.trivia.TriviaPlayViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/progress_circular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ProgressBar
+                android:id="@+id/timer_progress"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:layout_gravity="center_vertical"
+                android:indeterminate="false"
+                android:max="20"
+                android:progress="@{viewModel.currentTime}"
+                android:progressDrawable="@drawable/timer_progressbar"
+                android:rotation="270"
+                android:scaleY="-1" />
+
+            <TextView
+                android:id="@+id/timer_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@{viewModel.currentTime.toString()}"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="20" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/question_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="@dimen/margin_normal"
+            android:paddingBottom="@dimen/margin_extra_small"
+            android:text="@{viewModel.currentQuestion.question}"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@android:color/white"
+            app:layout_constraintTop_toBottomOf="@id/progress_circular" />
+
+        <TextView
+            android:id="@+id/category_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="@dimen/margin_normal"
+            android:paddingBottom="@dimen/margin_extra_small"
+            android:text="@{viewModel.currentQuestion.category}"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@android:color/white"
+            app:layout_constraintTop_toBottomOf="@id/question_text" />
+
+        <TextView
+            android:id="@+id/difficulty_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="@dimen/margin_normal"
+            android:paddingBottom="@dimen/margin_extra_small"
+            android:text="@{viewModel.currentQuestion.difficulty}"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@android:color/white"
+            app:layout_constraintTop_toBottomOf="@id/category_text" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/option_list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:paddingStart="@dimen/margin_normal"
+            android:paddingTop="@dimen/margin_small"
+            android:paddingEnd="@dimen/margin_normal"
+            app:layout_constraintBottom_toTopOf="@id/score_value"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/difficulty_text"
+            tools:listitem="@layout/list_item_option" />
+
+        <TextView
+            android:id="@+id/score_value"
+            android:text="@{viewModel.score.toString()}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_normal"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="@android:color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="9" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

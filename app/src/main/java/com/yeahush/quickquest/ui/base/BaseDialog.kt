@@ -7,28 +7,28 @@ import android.os.Bundle
 import android.view.ViewGroup
 import android.view.Window
 import android.widget.FrameLayout
+import android.widget.RelativeLayout
 import androidx.fragment.app.DialogFragment
+
 
 abstract class BaseDialog : DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val dialog = super.onCreateDialog(savedInstanceState)
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setCanceledOnTouchOutside(false)
-        dialog.setCancelable(false)
 
-        val root = context?.let { FrameLayout(it) }
-        root?.layoutParams = ViewGroup.LayoutParams(
+        // the content
+        val root = FrameLayout(requireActivity())
+        root.layoutParams = ViewGroup.LayoutParams(
             ViewGroup.LayoutParams.MATCH_PARENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT
+            ViewGroup.LayoutParams.MATCH_PARENT
         )
-        root?.let { dialog.setContentView(it) }
+
+        // creating the fullscreen dialog
+        val dialog = Dialog(requireActivity())
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setContentView(root)
         dialog.window?.apply {
             setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-            setLayout(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT
-            )
+            setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
         }
         return dialog
     }

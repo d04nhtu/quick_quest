@@ -1,4 +1,4 @@
-package com.yeahush.quickquest.data
+package com.yeahush.quickquest.data.local.prefs
 
 import android.content.Context
 import android.content.SharedPreferences

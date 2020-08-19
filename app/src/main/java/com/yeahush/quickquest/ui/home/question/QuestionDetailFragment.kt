@@ -5,11 +5,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.yeahush.quickquest.R
-import com.yeahush.quickquest.data.Question
+import com.yeahush.quickquest.data.local.model.Question
 import com.yeahush.quickquest.databinding.FragmentQuestionDetailBinding
 import com.yeahush.quickquest.utilities.CHOICE
 import com.yeahush.quickquest.utilities.IS_MARKED
@@ -67,6 +68,17 @@ class QuestionDetailFragment : Fragment(), View.OnClickListener,
         super.onSaveInstanceState(outState)
         outState.putString(CHOICE, choice)
         outState.putBoolean(IS_MARKED, isMarked)
+    }
+
+    fun onClickShowAlert(view: View?) {
+        val myAlertBuilder = AlertDialog.Builder(requireContext())
+
+        myAlertBuilder.setTitle("title")
+        myAlertBuilder.setMessage("message")
+
+        myAlertBuilder.setPositiveButton(R.string.ok_button) { _, _ -> }
+        myAlertBuilder.setNegativeButton(R.string.cancel_button) { _, _ -> }
+        myAlertBuilder.show()
     }
 
     override fun onClick(v: View?) {

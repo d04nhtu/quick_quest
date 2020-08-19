@@ -6,12 +6,12 @@
     <data>
 
         <variable
-            name="clickListener"
-            type="android.view.View.OnClickListener" />
+            name="categoryCallback"
+            type="com.yeahush.quickquest.ui.home.category.CategoryAdapter.CategoryClick" />
 
         <variable
             name="category"
-            type="com.yeahush.quickquest.data.Category" />
+            type="com.yeahush.quickquest.data.local.model.Category" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -20,7 +20,7 @@
         android:layout_marginStart="@dimen/card_side_margin"
         android:layout_marginEnd="@dimen/card_side_margin"
         android:layout_marginBottom="@dimen/card_bottom_margin"
-        android:onClick="@{clickListener}"
+        android:onClick="@{() -> categoryCallback.onClick(category)}"
         app:cardBackgroundColor="@android:color/holo_green_dark"
         app:cardCornerRadius="@dimen/card_corner_radius"
         app:cardElevation="@dimen/card_elevation"

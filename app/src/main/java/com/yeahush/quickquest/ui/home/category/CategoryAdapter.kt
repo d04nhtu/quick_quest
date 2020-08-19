@@ -1,23 +1,19 @@
-package com.yeahush.quickquest.adapters
+package com.yeahush.quickquest.ui.home.category
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.yeahush.quickquest.R
-import com.yeahush.quickquest.data.Category
+import com.yeahush.quickquest.data.local.model.Category
 import com.yeahush.quickquest.databinding.ListItemCategoryBinding
-import com.yeahush.quickquest.utilities.CATEGORY_KEY
 
-class CategoryAdapter : ListAdapter<Category, RecyclerView.ViewHolder>(CategoryDiffCallback()) {
+class CategoryAdapter(val callback: CategoryClick) :
+    ListAdapter<Category, RecyclerView.ViewHolder>(CategoryDiffCallback()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return CategoryViewHolder(
-            ListItemCategoryBinding.inflate(
-                LayoutInflater.from(parent.context), parent, false
-            )
+            ListItemCategoryBinding.inflate(LayoutInflater.from(parent.context), parent, false),
+            callback
         )
     }
 
@@ -26,29 +22,24 @@ class CategoryAdapter : ListAdapter<Category, RecyclerView.ViewHolder>(CategoryD
         (holder as CategoryViewHolder).bind(category)
     }
 
+    class CategoryClick(val block: (Category) -> Unit) {
+        fun onClick(category: Category) = block(category)
+    }
+
     class CategoryViewHolder(
-        private val binding: ListItemCategoryBinding
+        val binding: ListItemCategoryBinding,
+        val callback: CategoryClick
     ) : RecyclerView.ViewHolder(binding.root) {
-        init {
-            binding.setClickListener {
-                binding.category?.let { category ->
-                    binding.root.findNavController().navigate(
-                        R.id.action_category_to_question,
-                        bundleOf(CATEGORY_KEY to category.categoryId)
-                    )
-                }
-            }
-        }
 
         fun bind(item: Category) {
             binding.apply {
+                categoryCallback = callback
                 category = item
                 executePendingBindings()
             }
         }
     }
 }
-
 
 private class CategoryDiffCallback : DiffUtil.ItemCallback<Category>() {
 

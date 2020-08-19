@@ -1,4 +1,4 @@
-package com.yeahush.quickquest.data
+package com.yeahush.quickquest.data.local.prefs
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -16,9 +16,17 @@ class CommonPreferenceStorage @Inject constructor(context: Context) {
         context.applicationContext.getSharedPreferences(COMMON_PREFERENCE, Context.MODE_PRIVATE)
     }
 
-    var firstLaunch by BooleanPreference(preference, FIRST_LAUNCH, false)
+    var firstLaunch by BooleanPreference(
+        preference,
+        FIRST_LAUNCH,
+        false
+    )
 
-    var modeReview by BooleanPreference(preference, MODE_REVIEW, false)
+    var modeReview by BooleanPreference(
+        preference,
+        MODE_REVIEW,
+        false
+    )
 }
 
 class BooleanPreference(

@@ -1,7 +1,13 @@
 package com.yeahush.quickquest.di
 
 import android.content.Context
-import com.yeahush.quickquest.data.*
+import com.yeahush.quickquest.data.local.db.AppDatabase
+import com.yeahush.quickquest.data.local.prefs.ChoicesPreferenceStorage
+import com.yeahush.quickquest.data.local.prefs.CommonPreferenceStorage
+import com.yeahush.quickquest.data.remote.ApiService
+import com.yeahush.quickquest.ui.trivia.TriviaRepository
+import com.yeahush.quickquest.ui.home.category.CategoryRepository
+import com.yeahush.quickquest.ui.home.question.QuestionRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -27,6 +33,12 @@ object StorageModule {
         return QuestionRepository.getInstance(
             AppDatabase.getInstance(context.applicationContext).questionDao()
         )
+    }
+
+    @Singleton
+    @Provides
+    fun provideOnlineQuestionRepository(apiService: ApiService): TriviaRepository {
+        return TriviaRepository(apiService)
     }
 
     @Singleton

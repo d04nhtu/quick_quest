@@ -1,6 +1,8 @@
-package com.yeahush.quickquest.data
+package com.yeahush.quickquest.data.local.model
 
 import androidx.room.*
+import com.squareup.moshi.JsonClass
+import com.yeahush.quickquest.data.local.model.Category
 
 @Entity(
     tableName = "questions",
@@ -9,6 +11,7 @@ import androidx.room.*
     ],
     indices = [Index("category_id")]
 )
+@JsonClass(generateAdapter = true)
 data class Question(
     val question: String,
     val optionA: String,

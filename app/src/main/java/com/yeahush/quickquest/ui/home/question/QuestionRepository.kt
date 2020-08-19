@@ -1,6 +1,8 @@
-package com.yeahush.quickquest.data
+package com.yeahush.quickquest.ui.home.question
 
 import androidx.lifecycle.LiveData
+import com.yeahush.quickquest.data.local.model.CategoryAndQuestions
+import com.yeahush.quickquest.data.local.db.QuestionDao
 
 class QuestionRepository private constructor(
     private val questionDao: QuestionDao
