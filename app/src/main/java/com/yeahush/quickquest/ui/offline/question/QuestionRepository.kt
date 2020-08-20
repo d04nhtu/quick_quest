@@ -1,4 +1,4 @@
-package com.yeahush.quickquest.ui.home.question
+package com.yeahush.quickquest.ui.offline.question
 
 import androidx.lifecycle.LiveData
 import com.yeahush.quickquest.data.local.model.CategoryAndQuestions

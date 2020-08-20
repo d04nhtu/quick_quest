@@ -6,8 +6,8 @@ import com.yeahush.quickquest.data.local.prefs.ChoicesPreferenceStorage
 import com.yeahush.quickquest.data.local.prefs.CommonPreferenceStorage
 import com.yeahush.quickquest.data.remote.ApiService
 import com.yeahush.quickquest.ui.trivia.TriviaRepository
-import com.yeahush.quickquest.ui.home.category.CategoryRepository
-import com.yeahush.quickquest.ui.home.question.QuestionRepository
+import com.yeahush.quickquest.ui.offline.category.CategoryRepository
+import com.yeahush.quickquest.ui.offline.question.QuestionRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

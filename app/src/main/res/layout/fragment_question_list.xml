@@ -13,7 +13,7 @@
 
         <variable
             name="viewModel"
-            type="com.yeahush.quickquest.ui.home.question.QuestionListViewModel" />
+            type="com.yeahush.quickquest.ui.offline.question.QuestionListViewModel" />
     </data>
 
     <LinearLayout

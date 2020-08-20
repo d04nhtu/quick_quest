@@ -1,4 +1,4 @@
-package com.yeahush.quickquest.ui.home.category
+package com.yeahush.quickquest.ui.offline.category
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
 import com.yeahush.quickquest.databinding.FragmentCategoryListBinding
-import com.yeahush.quickquest.ui.home.question.QuestionListFragment
+import com.yeahush.quickquest.ui.offline.question.QuestionListFragment
 import com.yeahush.quickquest.utilities.CATEGORY_KEY
 import com.yeahush.quickquest.utilities.QUESTION_LIST_FRAGMENT
 import dagger.hilt.android.AndroidEntryPoint

@@ -4,6 +4,7 @@
     package="com.yeahush.quickquest">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".MainApplication"
         android:allowBackup="true"
@@ -15,9 +16,9 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name">
-            <!--            android:screenOrientation="portrait"-->
-            <!--            tools:ignore="LockedOrientationActivity"-->
-            <!--            >-->
+            <!-- android:screenOrientation="portrait" -->
+            <!-- tools:ignore="LockedOrientationActivity" -->
+            <!-- > -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

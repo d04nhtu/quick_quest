@@ -17,13 +17,22 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/notifications"
-    app:startDestination="@id/notificationsScreen">
+    android:id="@+id/settings"
+    app:startDestination="@id/notificationsScreen"
+    tools:ignore="UnusedNavigation">
 
     <fragment
         android:id="@+id/notificationsScreen"
-        android:name="com.yeahush.quickquest.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:name="com.yeahush.quickquest.ui.setting.SettingsFragment"
+        android:label="@string/title_settings">
+        <action
+            android:id="@+id/action_settings_to_about"
+            app:destination="@id/aboutScreen" />
+    </fragment>
 
+    <fragment
+        android:id="@+id/aboutScreen"
+        android:name="com.yeahush.quickquest.ui.setting.AboutFragment"
+        android:label="@string/about_title"
+        tools:layout="@layout/fragment_about" />
 </navigation>

@@ -1,4 +1,4 @@
-package com.yeahush.quickquest.ui.home.question
+package com.yeahush.quickquest.ui.offline.question
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -90,7 +90,12 @@ class QuestionListFragment : BaseDialog(), View.OnClickListener, ScoreDialog.OnM
 
     private fun subscribeUi() {
         viewModel.categoryAndQuestions.observe(viewLifecycleOwner) { questsOfCat ->
-            pager.adapter = QuestionListStateAdapter(this)
+            pager.apply {
+                adapter = QuestionListStateAdapter(this@QuestionListFragment)
+                // Set the margin between pages in the ViewPager2
+                val pageMargin = resources.getDimensionPixelSize(R.dimen.margin_normal)
+                setPageTransformer { page, position -> page.translationX = position * pageMargin }
+            }
             TabLayoutMediator(tabs, pager) { tab, pos -> tab.text = "${(pos + 1)}" }.attach()
             if (viewModel.answerList.isEmpty()) {
                 viewModel.saveAnswers(questsOfCat)

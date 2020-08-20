@@ -1,4 +1,4 @@
-package com.yeahush.quickquest.ui.home.question
+package com.yeahush.quickquest.ui.offline.question
 
 import android.os.CountDownTimer
 import android.text.format.DateUtils

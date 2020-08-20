@@ -1,4 +1,4 @@
-package com.yeahush.quickquest.ui.home.category
+package com.yeahush.quickquest.ui.offline.category
 
 import com.yeahush.quickquest.data.local.db.CategoryDao
 

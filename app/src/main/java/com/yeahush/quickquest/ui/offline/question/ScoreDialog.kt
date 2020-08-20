@@ -1,4 +1,4 @@
-package com.yeahush.quickquest.ui.home.question
+package com.yeahush.quickquest.ui.offline.question
 
 import android.content.Intent
 import android.os.Bundle

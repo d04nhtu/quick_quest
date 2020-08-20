@@ -17,13 +17,14 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/dashboard"
-    app:startDestination="@id/dashboardScreen">
+    android:id="@+id/trivia_api"
+    app:startDestination="@id/triviaApiScreen"
+    tools:ignore="UnusedNavigation">
 
     <fragment
-        android:id="@+id/dashboardScreen"
+        android:id="@+id/triviaApiScreen"
         android:name="com.yeahush.quickquest.ui.trivia.TriviaParamsFragment"
-        android:label="@string/title_dashboard"
+        android:label="@string/trivia_api"
         tools:layout="@layout/fragment_trivia_params" />
 
 </navigation>
