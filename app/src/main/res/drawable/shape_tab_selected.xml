@@ -3,5 +3,5 @@
     android:shape="oval">
     <stroke
         android:width="@dimen/card_elevation"
-        android:color="@android:color/black" />
+        android:color="@color/color_highlighted_surface" />
 </shape>

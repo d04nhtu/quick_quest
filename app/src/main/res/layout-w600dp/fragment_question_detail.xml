@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="question"
+            type="com.yeahush.quickquest.data.local.model.Question" />
+
+        <variable
+            name="isFinished"
+            type="boolean" />
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_surface"
+        android:orientation="horizontal"
+        tools:background="@tools:sample/backgrounds/scenic">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/margin_normal"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/questions"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/question_ordinal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_extra_small"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    tools:text="15" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/slash"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_normal"
+                    android:text="@string/_50"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <Button
+                    android:id="@+id/mark_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_normal"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_mark_button"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:onClick="@{clickListener}"
+                    android:paddingTop="@dimen/margin_extra_small"
+                    android:paddingBottom="@dimen/margin_extra_small"
+                    android:text="@string/mark"
+                    android:textAllCaps="false"
+                    android:visibility="@{isFinished ? View.INVISIBLE : View.VISIBLE}" />
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:gravity="center"
+                android:text="@{question.question}"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                tools:text="Who are you?" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/margin_normal"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/optionA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_extra_small"
+                android:background="@drawable/bg_option"
+                android:enabled="@{!isFinished}"
+                android:gravity="center"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:onClick="@{clickListener}"
+                android:paddingTop="@dimen/card_corner_radius"
+                android:paddingBottom="@dimen/card_corner_radius"
+                android:text="@{question.optionA}"
+                android:textAllCaps="false"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@android:color/white"
+                tools:text="A" />
+
+            <Button
+                android:id="@+id/optionB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_extra_small"
+                android:layout_marginBottom="@dimen/margin_extra_small"
+                android:background="@drawable/bg_option"
+                android:enabled="@{!isFinished}"
+                android:gravity="center"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:onClick="@{clickListener}"
+                android:paddingTop="@dimen/card_corner_radius"
+                android:paddingBottom="@dimen/card_corner_radius"
+                android:text="@{question.optionB}"
+                android:textAllCaps="false"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@android:color/white"
+                tools:text="B" />
+
+            <Button
+                android:id="@+id/optionC"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_extra_small"
+                android:layout_marginBottom="@dimen/margin_extra_small"
+                android:background="@drawable/bg_option"
+                android:enabled="@{!isFinished}"
+                android:gravity="center"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:onClick="@{clickListener}"
+                android:paddingTop="@dimen/card_corner_radius"
+                android:paddingBottom="@dimen/card_corner_radius"
+                android:text="@{question.optionC}"
+                android:textAllCaps="false"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@android:color/white"
+                tools:text="C" />
+
+            <Button
+                android:id="@+id/optionD"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_extra_small"
+                android:background="@drawable/bg_option"
+                android:enabled="@{!isFinished}"
+                android:gravity="center"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:onClick="@{clickListener}"
+                android:paddingTop="@dimen/card_corner_radius"
+                android:paddingBottom="@dimen/card_corner_radius"
+                android:text="@{question.optionD}"
+                android:textAllCaps="false"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@android:color/white"
+                tools:text="D" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

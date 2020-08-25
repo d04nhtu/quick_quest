@@ -2,10 +2,10 @@ package com.yeahush.quickquest.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.yeahush.quickquest.ui.home.category.CategoryListViewModel
+import com.yeahush.quickquest.ui.home.question.QuestionListViewModel
 import com.yeahush.quickquest.ui.trivia.TriviaParamsViewModel
 import com.yeahush.quickquest.ui.trivia.TriviaPlayViewModel
-import com.yeahush.quickquest.ui.offline.category.CategoryListViewModel
-import com.yeahush.quickquest.ui.offline.question.QuestionListViewModel
 import com.yeahush.quickquest.utilities.ViewModelFactory
 import dagger.Binds
 import dagger.Module

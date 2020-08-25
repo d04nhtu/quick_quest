@@ -3,8 +3,11 @@
     android:color="@color/shadow">
     <item>
         <selector>
+            <item android:state_selected="true">
+                <color android:color="@color/bar" />
+            </item>
             <item>
-                <color android:color="@color/background_dark" />
+                <color android:color="@color/color_background" />
             </item>
         </selector>
     </item>

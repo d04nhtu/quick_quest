@@ -22,7 +22,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorPrimary"
+        android:background="@color/color_surface"
         android:orientation="vertical"
         tools:background="@tools:sample/backgrounds/scenic">
 
@@ -46,32 +46,28 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/questions"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="@android:color/white" />
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
 
                 <TextView
                     android:id="@+id/question_ordinal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_small"
+                    android:layout_marginStart="@dimen/margin_extra_small"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="@android:color/white"
                     tools:text="15" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/slash"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="@android:color/white" />
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/margin_small"
                     android:text="@string/_50"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="@android:color/white" />
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
             </LinearLayout>
 
             <Button
@@ -91,90 +87,79 @@
                 android:visibility="@{isFinished ? View.INVISIBLE : View.VISIBLE}" />
         </LinearLayout>
 
-        <ScrollView
-            android:id="@+id/scroll_view"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_normal"
-            android:layout_marginEnd="@dimen/margin_normal">
+            android:layout_marginEnd="@dimen/margin_normal"
+            android:orientation="vertical">
 
-            <LinearLayout
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_marginBottom="@dimen/margin_normal"
+                android:gravity="center"
+                android:text="@{question.question}"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                tools:text="Who are you?" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/margin_normal"
-                    android:gravity="center"
-                    android:text="@{question.question}"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="@android:color/primary_text_dark"
-                    tools:text="Who are you?" />
+            <Button
+                android:id="@+id/optionA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_extra_small"
+                android:background="@drawable/bg_option"
+                android:enabled="@{!isFinished}"
+                android:gravity="center"
+                android:onClick="@{clickListener}"
+                android:text="@{question.optionA}"
+                android:textAllCaps="false"
+                android:textAppearance="?android:attr/textAppearanceListItem"
+                tools:text="A" />
 
-                <Button
-                    android:id="@+id/optionA"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/margin_extra_small"
-                    android:background="@drawable/bg_option"
-                    android:enabled="@{!isFinished}"
-                    android:gravity="center"
-                    android:onClick="@{clickListener}"
-                    android:text="@{question.optionA}"
-                    android:textAllCaps="false"
-                    android:textAppearance="?android:attr/textAppearanceListItem"
-                    android:textColor="@android:color/white"
-                    tools:text="A" />
+            <Button
+                android:id="@+id/optionB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_extra_small"
+                android:layout_marginBottom="@dimen/margin_extra_small"
+                android:background="@drawable/bg_option"
+                android:enabled="@{!isFinished}"
+                android:gravity="center"
+                android:onClick="@{clickListener}"
+                android:text="@{question.optionB}"
+                android:textAllCaps="false"
+                android:textAppearance="?android:attr/textAppearanceListItem"
+                tools:text="B" />
 
-                <Button
-                    android:id="@+id/optionB"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_small"
-                    android:layout_marginBottom="@dimen/margin_extra_small"
-                    android:background="@drawable/bg_option"
-                    android:enabled="@{!isFinished}"
-                    android:gravity="center"
-                    android:onClick="@{clickListener}"
-                    android:text="@{question.optionB}"
-                    android:textAllCaps="false"
-                    android:textAppearance="?android:attr/textAppearanceListItem"
-                    android:textColor="@android:color/white"
-                    tools:text="B" />
+            <Button
+                android:id="@+id/optionC"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_extra_small"
+                android:layout_marginBottom="@dimen/margin_extra_small"
+                android:background="@drawable/bg_option"
+                android:enabled="@{!isFinished}"
+                android:gravity="center"
+                android:onClick="@{clickListener}"
+                android:text="@{question.optionC}"
+                android:textAllCaps="false"
+                android:textAppearance="?android:attr/textAppearanceListItem"
+                tools:text="C" />
 
-                <Button
-                    android:id="@+id/optionC"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_small"
-                    android:layout_marginBottom="@dimen/margin_extra_small"
-                    android:background="@drawable/bg_option"
-                    android:enabled="@{!isFinished}"
-                    android:gravity="center"
-                    android:onClick="@{clickListener}"
-                    android:text="@{question.optionC}"
-                    android:textAllCaps="false"
-                    android:textAppearance="?android:attr/textAppearanceListItem"
-                    android:textColor="@android:color/white"
-                    tools:text="C" />
-
-                <Button
-                    android:id="@+id/optionD"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_small"
-                    android:background="@drawable/bg_option"
-                    android:enabled="@{!isFinished}"
-                    android:gravity="center"
-                    android:onClick="@{clickListener}"
-                    android:text="@{question.optionD}"
-                    android:textAllCaps="false"
-                    android:textAppearance="?android:attr/textAppearanceListItem"
-                    android:textColor="@android:color/white"
-                    tools:text="D" />
-            </LinearLayout>
-        </ScrollView>
+            <Button
+                android:id="@+id/optionD"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_extra_small"
+                android:background="@drawable/bg_option"
+                android:enabled="@{!isFinished}"
+                android:gravity="center"
+                android:onClick="@{clickListener}"
+                android:text="@{question.optionD}"
+                android:textAllCaps="false"
+                android:textAppearance="?android:attr/textAppearanceListItem"
+                tools:text="D" />
+        </LinearLayout>
     </LinearLayout>
 </layout>

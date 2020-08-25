@@ -6,7 +6,7 @@
             android:innerRadiusRatio="3"
             android:useLevel="false"
             android:thicknessRatio="7.0">
-            <solid android:color="@color/yellow"/>
+            <solid android:color="@color/mark"/>
         </shape>
     </item>
 
@@ -14,11 +14,8 @@
         <shape android:shape="ring"
             android:innerRadiusRatio="3"
             android:thicknessRatio="7.0">
-            <solid android:color="@color/colorAccent"/>
+            <solid android:color="@color/bar"/>
         </shape>
     </item>
-
-
-
 
 </layer-list>

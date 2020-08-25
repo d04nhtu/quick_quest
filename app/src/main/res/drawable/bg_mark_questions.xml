@@ -4,7 +4,7 @@
     <item>
         <selector>
             <item>
-                <color android:color="@android:color/holo_orange_light" />
+                <color android:color="@color/mark" />
             </item>
         </selector>
     </item>

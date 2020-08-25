@@ -4,7 +4,10 @@
     android:id="@+id/option_item_title"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/margin_small"
-    android:textColor="@android:color/white"
-    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+    android:layout_marginStart="@dimen/margin_small"
+    android:layout_marginTop="@dimen/margin_extra_small"
+    android:layout_marginEnd="@dimen/margin_small"
+    android:layout_marginBottom="@dimen/margin_extra_small"
+    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+    android:textColor="?android:attr/textColorSecondary"
     tools:text="A" />

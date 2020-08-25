@@ -12,8 +12,8 @@
         android:paddingTop="@dimen/margin_normal"
         android:paddingBottom="@dimen/margin_extra_small"
         android:text="@string/marked_questions"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="@android:color/white" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="?android:attr/textColorPrimary" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/mark_list"

@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
-    <color name="background_light">#fafafa</color> <!-- grey 50 -->
+    <color name="colorPrimary">#CE93D8</color>
+    <color name="colorPrimaryDark">#B39DDB</color>
+    <color name="colorAccent">#F48FB1</color>
+
+    <color name="color_surface">@color/background_light</color>
+    <color name="color_highlighted_surface">#ffffff</color>
+    <color name="color_background">#e0e0e0</color>
+
+    <color name="background_light">#fafafa</color>
     <color name="background_dark">#ff333333</color>
-    <color name="mid_grey">#40808080</color>
-    <color name="light_grey">#fff5f5f5</color>
-    <color name="semi_gray">#979797</color>
+
     <color name="shadow">#d0d8dc</color>
-    <color name="yellow">#ffffff00</color>
-    <color name="tab_indicator">#4FC3F7</color>
+    <color name="red">@android:color/holo_red_light</color>
+    <color name="green">@android:color/holo_green_light</color>
+    <color name="finish">#03a9f4</color>
+    <color name="bar">#039be5</color>
+    <color name="mark">#ffff9800</color>
 </resources>

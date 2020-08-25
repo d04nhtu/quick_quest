@@ -7,7 +7,7 @@
 
         <variable
             name="categoryCallback"
-            type="com.yeahush.quickquest.ui.offline.category.CategoryAdapter.CategoryClick" />
+            type="com.yeahush.quickquest.ui.home.category.CategoryAdapter.CategoryClick" />
 
         <variable
             name="category"
@@ -23,7 +23,7 @@
         android:foreground="?android:attr/selectableItemBackground"
         android:onClick="@{() -> categoryCallback.onClick(category)}"
         android:stateListAnimator="@animator/raise"
-        app:cardBackgroundColor="@android:color/holo_green_dark"
+        app:cardBackgroundColor="@color/green"
         app:cardCornerRadius="@dimen/card_corner_radius"
         app:cardElevation="@dimen/card_elevation">
 

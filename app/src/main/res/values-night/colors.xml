@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#AB47BC</color>
+    <color name="colorPrimaryDark">#7E57C2</color>
+    <color name="colorAccent">#EC407A</color>
+
+    <color name="color_surface">@color/background_dark</color>
+    <color name="color_highlighted_surface">#ff404040</color>
+    <color name="color_background">#ff292929</color>
+
+    <color name="red">@android:color/holo_red_dark</color>
+    <color name="green">@android:color/holo_green_dark</color>
+    <color name="finish">#003c8f</color>
+    <color name="bar">#0b3c87</color>
+    <color name="mark">#7f311a</color>
+</resources>

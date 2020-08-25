@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/categoryListScreen"
-        android:name="com.yeahush.quickquest.ui.offline.category.CategoryListFragment"
+        android:name="com.yeahush.quickquest.ui.home.category.CategoryListFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_category_list">
         <action
@@ -18,8 +18,8 @@
 
     <fragment
         android:id="@+id/questionListScreen"
-        android:name="com.yeahush.quickquest.ui.offline.question.QuestionListFragment"
+        android:name="com.yeahush.quickquest.ui.home.question.QuestionListDialog"
         android:label="@string/title_questions"
-        tools:layout="@layout/fragment_question_list" />
+        tools:layout="@layout/dialog_question_list" />
 
 </navigation>

@@ -2,27 +2,24 @@
 
     <PreferenceCategory app:title="@string/general_header">
         <EditTextPreference
-            app:key="signature"
+            app:key="@string/signature_title"
             app:title="@string/signature_title"
             app:useSimpleSummaryProvider="true" />
 
         <SwitchPreference
             app:defaultValue="true"
-            app:key="Sound"
-            app:title="Sound" />
-
-        <ListPreference
-            app:defaultValue="reply"
-            app:entries="@array/reply_entries"
-            app:entryValues="@array/reply_values"
-            app:key="reply"
-            app:title="@string/reply_title"
-            app:useSimpleSummaryProvider="true" />
+            app:key="@string/sound_title"
+            app:title="@string/sound_title" />
 
         <SwitchPreference
             app:defaultValue="true"
-            app:key="Vibrate"
-            app:title="Vibrate" />
+            app:key="@string/bg_music_title"
+            app:title="@string/bg_music_title" />
+
+        <SwitchPreference
+            app:defaultValue="true"
+            app:key="@string/vibrate_title"
+            app:title="@string/vibrate_title" />
     </PreferenceCategory>
 
     <PreferenceCategory app:title="@string/others_header">
