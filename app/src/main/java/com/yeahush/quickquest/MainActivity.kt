@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(
                 Intent(
                     Intent.ACTION_VIEW,
-                    Uri.parse("http://play.google.com/store/apps/details?id=$packageName")
+                    Uri.parse("https://play.google.com/store/apps/details?id=$packageName")
                 )
             )
         }
@@ -110,7 +110,7 @@ class MainActivity : AppCompatActivity() {
         )
 
         // Whenever the selected controller changes, setup the action bar.
-        controller.observe(this, Observer { setupActionBarWithNavController(it) })
+        controller.observe(this, { setupActionBarWithNavController(it) })
         currentNavController = controller
     }
 

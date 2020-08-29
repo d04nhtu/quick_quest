@@ -2,29 +2,63 @@ package com.yeahush.quickquest.ui.setting
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.method.LinkMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.net.toUri
+import androidx.core.text.HtmlCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.yeahush.quickquest.R
 import com.yeahush.quickquest.data.local.model.Library
+import com.yeahush.quickquest.data.local.prefs.AppPreferences
+import com.yeahush.quickquest.utilities.playResourceSound
+import com.yeahush.quickquest.utilities.vibrate
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_about.*
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class AboutFragment : Fragment() {
+    @Inject
+    lateinit var appPreferences: AppPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = inflater.inflate(R.layout.fragment_about, container, false)
+    ): View? {
+        return inflater.inflate(R.layout.fragment_about, container, false)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        arch_content.text = HtmlCompat.fromHtml(
+            resources.getString(R.string.arch_content),
+            HtmlCompat.FROM_HTML_MODE_COMPACT
+        )
+        source.text = HtmlCompat.fromHtml(
+            resources.getString(R.string.source),
+            HtmlCompat.FROM_HTML_MODE_COMPACT
+        )
+        intro.text = HtmlCompat.fromHtml(
+            resources.getString(R.string.intro),
+            HtmlCompat.FROM_HTML_MODE_COMPACT
+        )
+        purpose.text = HtmlCompat.fromHtml(
+            resources.getString(R.string.purpose), HtmlCompat.FROM_HTML_MODE_COMPACT
+        )
+        arch_content.movementMethod = LinkMovementMethod.getInstance()
+        source.movementMethod = LinkMovementMethod.getInstance()
+        intro.movementMethod = LinkMovementMethod.getInstance()
+        purpose.movementMethod = LinkMovementMethod.getInstance()
+
         val libraryAdapter = LibraryAdapter {
+            if (appPreferences.isSoundEnable()) playResourceSound(context, R.raw.click)
+            if (appPreferences.isVibrateEnable()) vibrate(context)
             startActivity(Intent(Intent.ACTION_VIEW, it.link.toUri()))
         }
         library_list.adapter = libraryAdapter
@@ -55,33 +89,12 @@ class AboutFragment : Fragment() {
             false
         ),
         Library(
-            "Bypass",
-            "Skip the HTML, Bypass takes markdown and renders it directly.",
-            "https://github.com/Uncodin/bypass",
-            "https://avatars.githubusercontent.com/u/1072254",
-            true
-        ),
-        Library(
-            "Firebase Crashlytics",
-            "The most powerful, yet lightest weight crash reporting solution.",
-            "https://firebase.google.com/products/crashlytics/",
-            "https://www.gstatic.com/mobilesdk/160503_mobilesdk/logo/2x/firebase_96dp.png",
-            false
-        ),
-        Library(
-            "Dagger2",
-            "Dagger is a fully static, compile-time dependency injection framework" +
-                    "for both Java and Android.",
-            "https://google.github.io/dagger/",
+            "Hilt",
+            "Hilt provides a standard way to incorporate Dagger dependency injection " +
+                    "into an Android application.",
+            "https://dagger.dev/hilt/",
             "https://avatars.githubusercontent.com/u/1342004",
             true
-        ),
-        Library(
-            "Firebase",
-            "A comprehensive mobile development platform",
-            "https://firebase.google.com/",
-            "https://www.gstatic.com/mobilesdk/160503_mobilesdk/logo/2x/firebase_96dp.png",
-            false
         ),
         Library(
             "Glide",
@@ -90,20 +103,6 @@ class AboutFragment : Fragment() {
             "https://github.com/bumptech/glide",
             "https://avatars.githubusercontent.com/u/423539",
             false
-        ),
-        Library(
-            "JSoup",
-            "Java HTML Parser, with best of DOM, CSS, and jquery.",
-            "https://github.com/jhy/jsoup/",
-            "https://avatars.githubusercontent.com/u/76934",
-            true
-        ),
-        Library(
-            "ktlint",
-            "An anti-bikeshedding Kotlin linter with built-in formatter",
-            "https://github.com/shyiko/ktlint",
-            "https://avatars.githubusercontent.com/u/370176",
-            true
         ),
         Library(
             "Mockito",
@@ -119,12 +118,11 @@ class AboutFragment : Fragment() {
             "https://github.com/nhaarman/mockito-kotlin",
             "https://avatars.githubusercontent.com/u/3015152",
             true
-
         ),
         Library(
-            "OkHttp",
-            "An HTTP & HTTP/2 client for Android and Java applications.",
-            "http://square.github.io/okhttp/",
+            "Moshi",
+            "Modern JSON library for Android and Java.",
+            "https://github.com/square/moshi",
             "https://avatars.githubusercontent.com/u/82592",
             false
         ),

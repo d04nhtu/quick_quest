@@ -46,7 +46,7 @@ class ScoreDialog : BaseDialog() {
     private fun onClickShareScore() {
         val shareIntent = activity?.let {
             ShareCompat.IntentBuilder.from(it)
-                .setText("I got the score of $score from a test in Quick Quest application.")
+                .setText("I got the score of $score from a test in Quick Quest application \uD83D\uDC49 https://play.google.com/store/apps/details?id=${it.packageName}")
                 .setType("text/plain")
                 .createChooserIntent()
                 .addFlags(Intent.FLAG_ACTIVITY_NEW_DOCUMENT or Intent.FLAG_ACTIVITY_MULTIPLE_TASK)

@@ -30,13 +30,7 @@
             android:outlineProvider="none"
             app:navigationIcon="@drawable/ic_baseline_cancel_24"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:title="@string/let_s_play" />
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@android:color/black" />
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabs"
@@ -47,11 +41,6 @@
             app:tabIndicatorHeight="0dp"
             app:tabMinWidth="0dp"
             app:tabMode="scrollable" />
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@android:color/black" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraint_layout"
@@ -110,11 +99,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@android:color/black" />
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/pager"

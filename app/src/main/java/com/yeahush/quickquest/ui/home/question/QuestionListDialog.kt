@@ -132,6 +132,7 @@ class QuestionListDialog : BaseDialog(), View.OnClickListener, ScoreDialog.OnAft
 
     private fun subscribeUi() {
         viewModel.categoryAndQuestions.observe(viewLifecycleOwner) { questsOfCat ->
+            toolbar.title = questsOfCat.category.name
             pager.apply {
                 adapter = QuestionListStateAdapter(this@QuestionListDialog)
                 // Set the margin between pages in the ViewPager2
