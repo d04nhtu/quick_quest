@@ -16,6 +16,7 @@ import com.yeahush.quickquest.utilities.QUESTION_LIST_FRAGMENT
 import com.yeahush.quickquest.utilities.playResourceSound
 import com.yeahush.quickquest.utilities.vibrate
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.fragment_category_list.*
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -58,8 +59,10 @@ class CategoryListFragment : Fragment() {
     }
 
     private fun subscribeUi(adapter: CategoryAdapter) {
-        viewModel.categories.observe(viewLifecycleOwner) { categories ->
+        viewModel.categories.observe(viewLifecycleOwner, { categories ->
+            progress_bar.visibility = View.GONE
+            category_list.visibility = View.VISIBLE
             adapter.submitList(categories)
-        }
+        })
     }
 }

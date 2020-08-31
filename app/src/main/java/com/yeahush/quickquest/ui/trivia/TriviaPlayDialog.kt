@@ -10,10 +10,10 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.yeahush.quickquest.MainApplication
 import com.yeahush.quickquest.R
 import com.yeahush.quickquest.databinding.DialogTriviaPlayBinding
 import com.yeahush.quickquest.ui.base.BaseDialog
@@ -76,7 +76,7 @@ class TriviaPlayDialog : BaseDialog() {
         option_list.adapter = optionAdapter
         option_list.layoutManager = LinearLayoutManager(context)
 
-        viewModel.currentQuestion.observe(viewLifecycleOwner, Observer {
+        viewModel.currentQuestion.observe(viewLifecycleOwner, {
             question_text.text = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                 Html.fromHtml(it.question, Html.FROM_HTML_MODE_LEGACY)
             } else {
@@ -86,29 +86,29 @@ class TriviaPlayDialog : BaseDialog() {
             question_text.startAnimation(animFadeIn)
         })
 
-        viewModel.eventStart.observe(viewLifecycleOwner, Observer {
+        viewModel.eventStart.observe(viewLifecycleOwner, {
             val options = (option_list.adapter as TriviaOptionAdapter).items
             for (i in options.indices) {
                 option_list.layoutManager?.findViewByPosition(i)?.isClickable = it
             }
         })
 
-        viewModel.eventNetworkError.observe(viewLifecycleOwner, Observer {
+        viewModel.eventNetworkError.observe(viewLifecycleOwner, {
             if (it) {
                 showToast(context, resources.getString(R.string.check_internet))
                 dismiss()
             }
         })
 
-        viewModel.eventQueryEmpty.observe(viewLifecycleOwner, Observer {
+        viewModel.eventQueryEmpty.observe(viewLifecycleOwner, {
             if (it) {
                 showToast(context, resources.getString(R.string.choose_other_category))
                 dismiss()
             }
         })
 
-        viewModel.eventFinish.observe(viewLifecycleOwner, Observer<Boolean> { if (it) onFinish() })
-        viewModel.options.observe(viewLifecycleOwner, Observer {
+        viewModel.eventFinish.observe(viewLifecycleOwner, { if (it) onFinish() })
+        viewModel.options.observe(viewLifecycleOwner, {
             optionAdapter.setOptions(it)
         })
         viewLifecycleOwner.lifecycleScope.launch {
@@ -120,13 +120,10 @@ class TriviaPlayDialog : BaseDialog() {
                 )
             )
         }
-
     }
 
     private fun onFinish() {
-        viewModel.score.value?.let {
-            showScoreDialog(it)
-        }
+        viewModel.score.value?.let { showScoreDialog(it) }
     }
 
     private fun onOptionClick(pos: Int) {
@@ -162,7 +159,10 @@ class TriviaPlayDialog : BaseDialog() {
         if (alertBuilder != null) {
             alertBuilder.setTitle("Result")
             alertBuilder.setMessage("${viewModel.getSignature()} scored $score")
-            alertBuilder.setPositiveButton(android.R.string.ok) { _, _ -> dismiss() }
+            alertBuilder.setPositiveButton(android.R.string.ok) { _, _ ->
+                (activity?.application as MainApplication).showInterstitial()
+                dismiss()
+            }
             alertBuilder.show()
         }
     }

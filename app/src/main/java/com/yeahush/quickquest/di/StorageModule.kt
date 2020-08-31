@@ -1,12 +1,20 @@
 package com.yeahush.quickquest.di
 
 import android.content.Context
+import androidx.room.Room
+import androidx.room.RoomDatabase
+import androidx.sqlite.db.SupportSQLiteDatabase
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
 import com.yeahush.quickquest.data.local.db.AppDatabase
+import com.yeahush.quickquest.data.local.db.CategoryDao
+import com.yeahush.quickquest.data.local.db.QuestionDao
 import com.yeahush.quickquest.data.local.prefs.AppPreferences
 import com.yeahush.quickquest.data.remote.ApiService
-import com.yeahush.quickquest.ui.home.category.CategoryRepository
-import com.yeahush.quickquest.ui.home.question.QuestionRepository
 import com.yeahush.quickquest.ui.trivia.TriviaRepository
+import com.yeahush.quickquest.utilities.DATABASE_NAME
+import com.yeahush.quickquest.workers.PrepopulateCategoriesWorker
+import com.yeahush.quickquest.workers.PrepopulateQuestionsWorker
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,20 +26,34 @@ import javax.inject.Singleton
 @Module
 object StorageModule {
 
-    @Singleton
     @Provides
-    fun provideCategoryRepository(@ApplicationContext context: Context): CategoryRepository {
-        return CategoryRepository.getInstance(
-            AppDatabase.getInstance(context.applicationContext).categoryDao()
-        )
+    @Singleton
+    fun provideDatabase(@ApplicationContext context: Context): AppDatabase {
+        // Make sure a read is made before writing so our onCreate callback is executed first
+        return Room.databaseBuilder(context, AppDatabase::class.java, DATABASE_NAME)
+            .addCallback(object : RoomDatabase.Callback() {
+                override fun onCreate(db: SupportSQLiteDatabase) {
+                    super.onCreate(db)
+                    WorkManager.getInstance(context).enqueue(
+                        listOf(
+                            OneTimeWorkRequestBuilder<PrepopulateCategoriesWorker>().build(),
+                            OneTimeWorkRequestBuilder<PrepopulateQuestionsWorker>().build()
+                        )
+                    )
+                }
+            }).build()
     }
 
     @Singleton
     @Provides
-    fun provideQuestionRepository(@ApplicationContext context: Context): QuestionRepository {
-        return QuestionRepository.getInstance(
-            AppDatabase.getInstance(context.applicationContext).questionDao()
-        )
+    fun provideCategoryDao(database: AppDatabase): CategoryDao {
+        return database.categoryDao()
+    }
+
+    @Singleton
+    @Provides
+    fun provideQuestionDao(database: AppDatabase): QuestionDao {
+        return database.questionDao()
     }
 
     @Singleton
@@ -42,7 +64,8 @@ object StorageModule {
 
     @Singleton
     @Provides
-    fun provideAppPreferences(@ApplicationContext context: Context): AppPreferences =
-        AppPreferences(context)
+    fun provideAppPreferences(@ApplicationContext context: Context): AppPreferences {
+        return AppPreferences(context)
+    }
 
 }

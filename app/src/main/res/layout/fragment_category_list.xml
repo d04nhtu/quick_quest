@@ -7,6 +7,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="visible"
+            tools:visibility="gone" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/category_list"
             android:layout_width="match_parent"
@@ -15,9 +24,11 @@
             android:paddingStart="@dimen/card_side_margin"
             android:paddingTop="@dimen/header_margin"
             android:paddingEnd="@dimen/card_side_margin"
+            android:visibility="gone"
             app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
             app:spanCount="@integer/grid_columns"
             tools:context=".MainActivity"
-            tools:listitem="@layout/list_item_category" />
+            tools:listitem="@layout/list_item_category"
+            tools:visibility="visible" />
     </FrameLayout>
 </layout>

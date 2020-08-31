@@ -18,6 +18,22 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <!-- Include the AdActivity configChanges and theme. -->
+        <activity
+            android:name="com.google.android.gms.ads.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:theme="@android:style/Theme.Translucent" />
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3138315103708543~1375509935" />
+
+        <provider
+            android:name="androidx.work.impl.WorkManagerInitializer"
+            android:authorities="${applicationId}.workmanager-init"
+            tools:node="remove"
+            android:exported="false" />
+
         <activity
             android:name=".SplashActivity"
             android:theme="@style/Splash">

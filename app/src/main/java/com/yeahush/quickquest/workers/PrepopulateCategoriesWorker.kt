@@ -1,28 +1,29 @@
 package com.yeahush.quickquest.workers
 
 import android.content.Context
-import androidx.work.CoroutineWorker
+import androidx.hilt.Assisted
+import androidx.hilt.work.WorkerInject
+import androidx.work.Worker
 import androidx.work.WorkerParameters
 import com.yeahush.quickquest.R
-import com.yeahush.quickquest.data.local.db.AppDatabase
+import com.yeahush.quickquest.data.local.db.CategoryDao
 import com.yeahush.quickquest.data.local.model.Category
-import kotlinx.coroutines.coroutineScope
 import timber.log.Timber
 
-class PrepopulateCategoriesWorker(
-    private val context: Context,
-    workerParams: WorkerParameters
-) : CoroutineWorker(context, workerParams) {
+class PrepopulateCategoriesWorker @WorkerInject constructor(
+    @Assisted private val context: Context,
+    @Assisted workerParams: WorkerParameters,
+    private val categoryDao: CategoryDao
+) : Worker(context, workerParams) {
 
-    override suspend fun doWork(): Result = coroutineScope {
+    override fun doWork(): Result =
         try {
-            AppDatabase.getInstance(applicationContext).categoryDao().insertAll(getCategories())
+            categoryDao.insertAll(getCategories())
             Result.success()
         } catch (ex: Exception) {
             Timber.e(ex, "Error prepopulate categories")
             Result.failure()
         }
-    }
 
     private fun getCategories(): MutableList<Category> {
         val cats = mutableListOf<Category>()

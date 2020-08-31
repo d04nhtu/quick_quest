@@ -62,7 +62,6 @@ class SettingsFragment : PreferenceFragmentCompat(), Preference.OnPreferenceClic
     override fun onPreferenceClick(preference: Preference?): Boolean {
         if (appPreferences.isSoundEnable()) playResourceSound(context, R.raw.click)
         if (appPreferences.isVibrateEnable()) vibrate(context)
-
         when (preference?.key) {
             resources.getString(R.string.term_title) -> showDialogTerm()
             resources.getString(R.string.about_title) ->

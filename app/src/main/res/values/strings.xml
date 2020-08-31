@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Quick Quest</string>
+    <string name="interstitial_ad_unit_id">ca-app-pub-3138315103708543/9964446396</string>
     <string name="title_home">Home</string>
     <string name="a11y_category_item_image">Picture of category</string>
     <string name="questions">Questions:</string>
@@ -27,7 +28,7 @@
     <string name="arch_content"><![CDATA[<a href="https://en.wikipedia.org/wiki/Apple">MVVM</a> is the design pattern used for making this app.]]></string>
     <string name="purpose"><![CDATA[Quick Quest is implemented in <a href="https://kotlinlang.org/">Kotlin</a> (for learning purposes) by <a href="https://www.facebook.com/yeahush">Anh Tu Do</a>]]></string>
     <string name="source"><![CDATA[The source code is available on <a href="https://github.com/d04nhtu/quick_quest">GitHub</a>.]]></string>
-    <string name="intro"><![CDATA[The app is consist of two sources of questions. One is populating from local json file, questions may not match the category .The other is pulling data from <a href="https://opentdb.com/api_config.php">Trivia API</a> over the Internet.]]></string>
+    <string name="intro"><![CDATA[The app is consist of two sources of questions. One is populated from a local json file, questions may not match the category. The other is pulled from <a href="https://opentdb.com/api_config.php">Trivia API</a> over the Internet.]]></string>
     <string name="term_title">Term &amp; Policies</string>
     <string name="term_content">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dolor risus, aliquet a erat quis, viverra molestie orci. Suspendisse vehicula porta libero. Nam tincidunt nulla ipsum, vel iaculis risus scelerisque sed. Phasellus venenatis, enim vel placerat blandit, leo eros bibendum erat, at auctor mauris diam ac risus. Aenean sit amet congue neque, sit amet condimentum elit. Fusce lacinia massa vel nisl scelerisque, in scelerisque dolor elementum. Vivamus leo enim, congue dictum congue vitae, porttitor id purus. Sed eu ultricies erat. Morbi hendrerit, mi ac volutpat commodo, magna turpis pretium nibh, at fringilla eros lorem quis tellus. Praesent porttitor purus nibh, ac vestibulum massa fringilla vel. Pellentesque dapibus nulla quis luctus dictum. In scelerisque ut ex sed facilisis. Nunc eu finibus nulla, ut hendrerit sem. Suspendisse accumsan risus vel diam fringilla iaculis.

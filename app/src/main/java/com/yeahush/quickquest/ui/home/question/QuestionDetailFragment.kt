@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.yeahush.quickquest.R
 import com.yeahush.quickquest.data.local.model.Question
@@ -34,7 +33,7 @@ class QuestionDetailFragment : Fragment(), View.OnClickListener {
             clickListener = this@QuestionDetailFragment
             question = quest
         }
-        viewModel.eventGameFinish.observe(viewLifecycleOwner, Observer {
+        viewModel.eventGameFinish.observe(viewLifecycleOwner, {
             binding.isFinished = it
         })
         return binding.root
@@ -49,7 +48,7 @@ class QuestionDetailFragment : Fragment(), View.OnClickListener {
             setSelectedChoice()
         }
 
-        viewModel.eventGameFinish.observe(viewLifecycleOwner, Observer<Boolean> { hasFinished ->
+        viewModel.eventGameFinish.observe(viewLifecycleOwner, { hasFinished ->
             if (hasFinished) gameFinished()
         })
     }

@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.AppCompatCheckBox
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.yeahush.quickquest.data.local.prefs.AppPreferences
@@ -22,10 +21,10 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-    private var currentNavController: LiveData<NavController>? = null
-
     @Inject
     lateinit var preferenceStorage: AppPreferences
+
+    private var currentNavController: LiveData<NavController>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

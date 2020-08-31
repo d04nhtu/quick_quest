@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.yeahush.quickquest.R
 import com.yeahush.quickquest.utilities.*
@@ -42,7 +41,7 @@ class TriviaParamsFragment : Fragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.eventNetworkError.observe(viewLifecycleOwner, Observer {
+        viewModel.eventNetworkError.observe(viewLifecycleOwner, {
             if (it) {
                 progress_bar.visibility = View.GONE
                 retry.visibility = View.VISIBLE
@@ -50,7 +49,7 @@ class TriviaParamsFragment : Fragment(), View.OnClickListener {
             }
         })
 
-        viewModel.categories.observe(viewLifecycleOwner, Observer { triviaCategories ->
+        viewModel.categories.observe(viewLifecycleOwner, { triviaCategories ->
             val categories: List<String> = triviaCategories.map { it.name }
             val arrayAdapter = context?.let {
                 ArrayAdapter(it, R.layout.support_simple_spinner_dropdown_item, categories)

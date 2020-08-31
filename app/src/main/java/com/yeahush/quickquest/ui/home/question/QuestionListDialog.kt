@@ -45,7 +45,6 @@ class QuestionListDialog : BaseDialog(), View.OnClickListener, ScoreDialog.OnAft
             clickListener = this@QuestionListDialog
             viewModel = this@QuestionListDialog.viewModel
         }
-
         subscribeUi()
         return binding.root
     }

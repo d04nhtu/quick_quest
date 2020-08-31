@@ -19,7 +19,7 @@ interface QuestionDao {
     fun getQuestionsOfCategory(categoryId: String): LiveData<CategoryAndQuestions>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(plants: List<Question>)
+    fun insertAll(plants: List<Question>)
 
     @Insert
     suspend fun insertQuestion(question: Question): Long

@@ -16,5 +16,5 @@ interface CategoryDao {
     fun getCategory(categoryId: String): LiveData<Category>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(categories: List<Category>)
+    fun insertAll(categories: List<Category>)
 }
