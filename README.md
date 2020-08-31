@@ -1,5 +1,7 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 # Quick Quest
-**Android app for multiple choice questions, consisting of two sources of questions. One is prepopulated from a local json file and the other is pulled from <a href="https://opentdb.com/api_config.php">Trivia API</a> over the Internet.**
+**Android app for multiple choice questions, consisting of two sources of questions. One is prepopulated from <a href="https://github.com/d04nhtu/quick_quest/blob/master/app/src/main/assets/questions.json">a local json file</a> (questions may not match the category) and the other is pulled from <a href="https://opentdb.com/api_config.php">Trivia API</a> over the Internet.**
 
 <img src="app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" align="left" width="128" hspace="10" vspace="10">
 
@@ -13,25 +15,23 @@ Quick Quest is available for free on the Google Play Store.
 
 ##  Screenshots
 <p align="middle">
-  <img width="120" src="https://lh3.googleusercontent.com/fxFUpddjuPFrJnOu5fsXzalaU03bTQ6KRavqqvjTQI1C7H6b2esKTW0ab4GXJZxSrlg=w1536-h671-rw">
-  <img width="120" src="https://lh3.googleusercontent.com/mqXvDO8D3z3y-gSIcX1llqByIUCgWY6hPA6GYcWrn69loqdxU89lfTTAm1neRuXgIA=w1536-h671-rw">
-  <img width="120" src="https://lh3.googleusercontent.com/k3cFQE7O6biSqqo5UOSa0HKpn_DX7Yr4Tn84bbd2-8a58GwSRQzVZ6eGz-ym-4chnKXh=w1536-h671-rw">
-  <img width="120" src="https://lh3.googleusercontent.com/RH3Uler6KxtiYnftrPRcd3CTDsCYj5r0IvoE1TpPRPjUnDUqgTsQvdHHBtck0U8QWFc=w1536-h671-rw">
-  <img width="120" src="https://lh3.googleusercontent.com/mamYMesMA53HxoDfzUZRF_aQHpmfTsWbVv_0t6hRN41Or_agu3gHbWCahdqDgQbyQzo=w1536-h671-rw">
-  <img width="120" src="https://lh3.googleusercontent.com/9tyopjilMfqOatkBBMLw776kNXUbJRS853SRmobHCMXFVgZfOCBbWzesr2vIjaQ7pQ=w1536-h671-rw">
-  <img width="120" src="https://lh3.googleusercontent.com/1OsAeVUWEN7U8eaMoaozsQ_AfJnyfA5mltI1Qt5m_oPZ8DNh71syGMks_NWM-ENEZJs=w1536-h671-rw">
-  <img width="120" src="https://lh3.googleusercontent.com/glXmy2KM3jivBF5r-3Xtx_Yoana1XnHJF06hS4uSuNzih3v0FpdU4aZyUg7WtGosSyxL=w1536-h671-rw">
+  <img width="128" src="https://lh3.googleusercontent.com/fxFUpddjuPFrJnOu5fsXzalaU03bTQ6KRavqqvjTQI1C7H6b2esKTW0ab4GXJZxSrlg=w1536-h671-rw">
+  <img width="128" src="https://lh3.googleusercontent.com/mqXvDO8D3z3y-gSIcX1llqByIUCgWY6hPA6GYcWrn69loqdxU89lfTTAm1neRuXgIA=w1536-h671-rw">
+  <img width="128" src="https://lh3.googleusercontent.com/k3cFQE7O6biSqqo5UOSa0HKpn_DX7Yr4Tn84bbd2-8a58GwSRQzVZ6eGz-ym-4chnKXh=w1536-h671-rw">
+  <img width="128" src="https://lh3.googleusercontent.com/RH3Uler6KxtiYnftrPRcd3CTDsCYj5r0IvoE1TpPRPjUnDUqgTsQvdHHBtck0U8QWFc=w1536-h671-rw">
+  <img width="128" src="https://lh3.googleusercontent.com/mamYMesMA53HxoDfzUZRF_aQHpmfTsWbVv_0t6hRN41Or_agu3gHbWCahdqDgQbyQzo=w1536-h671-rw">
+  <img width="128" src="https://lh3.googleusercontent.com/9tyopjilMfqOatkBBMLw776kNXUbJRS853SRmobHCMXFVgZfOCBbWzesr2vIjaQ7pQ=w1536-h671-rw">
+  <img width="128" src="https://lh3.googleusercontent.com/1OsAeVUWEN7U8eaMoaozsQ_AfJnyfA5mltI1Qt5m_oPZ8DNh71syGMks_NWM-ENEZJs=w1536-h671-rw">
+  <img width="128" src="https://lh3.googleusercontent.com/glXmy2KM3jivBF5r-3Xtx_Yoana1XnHJF06hS4uSuNzih3v0FpdU4aZyUg7WtGosSyxL=w1536-h671-rw">
 </p>
 
 ## 📃 Libraries Used
 
-* [Architecture][1] - A collection of libraries that help you design robust, testable, and
-  maintainable apps.
+* [Architecture][1] - A collection of libraries that help you design robust, testable, and maintainable apps.
   * [Data Binding][2] - Declaratively bind observable data to UI elements.
   * [LiveData][3] - Build data objects that notify views when the underlying database changes.
   * [Room][4] - Access your app's SQLite database with in-app objects and compile-time checks.
-  * [ViewModel][5] - Store UI-related data that isn't destroyed on app rotations. Easily schedule
-     asynchronous tasks for optimal execution.
+  * [ViewModel][5] - Store UI-related data that isn't destroyed on app rotations.
   * [Hilt][6] - Providing a standard way to incorporate Dagger dependency injection into an Android application.
   * [Navigation][12] - Handle everything needed for in-app navigation.
   

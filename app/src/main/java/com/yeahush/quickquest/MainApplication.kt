@@ -5,9 +5,7 @@ import android.media.AudioAttributes
 import android.media.MediaPlayer
 import androidx.hilt.work.HiltWorkerFactory
 import androidx.work.Configuration
-import com.google.android.gms.ads.AdListener
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.InterstitialAd
+import com.google.android.gms.ads.*
 import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
 import javax.inject.Inject
@@ -24,7 +22,8 @@ class MainApplication : Application(), Configuration.Provider {
         super.onCreate()
         Timber.plant(Timber.DebugTree())
         initMediaPlayer()
-
+        // Initialize the Mobile Ads SDK.
+        MobileAds.initialize(this) {}
         // Create the InterstitialAd and set the adUnitId (defined in values/strings.xml).
         interstitialAd = newInterstitialAd()
         loadInterstitial()
@@ -74,6 +73,12 @@ class MainApplication : Application(), Configuration.Provider {
         return InterstitialAd(this).apply {
             adUnitId = getString(R.string.interstitial_ad_unit_id)
             adListener = object : AdListener() {
+                override fun onAdFailedToLoad(loadAdError: LoadAdError) {
+                    val error = "domain: ${loadAdError.domain}, code: ${loadAdError.code}, " +
+                            "message: ${loadAdError.message}"
+                    Timber.d("onAdFailedToLoad() with error $error")
+                }
+
                 override fun onAdClosed() {
                     reloadAd()
                 }
