@@ -26,8 +26,8 @@ import javax.inject.Singleton
 @Module
 object StorageModule {
 
-    @Provides
     @Singleton
+    @Provides
     fun provideDatabase(@ApplicationContext context: Context): AppDatabase {
         // Make sure a read is made before writing so our onCreate callback is executed first
         return Room.databaseBuilder(context, AppDatabase::class.java, DATABASE_NAME)

@@ -38,7 +38,7 @@ class MainApplication : Application(), Configuration.Provider {
     private fun initMediaPlayer() {
         Timber.d("initMediaPlayer")
         try {
-            player = MediaPlayer.create(applicationContext, R.raw.lights).apply {
+            player = MediaPlayer.create(applicationContext, R.raw.bgm).apply {
                 setAudioAttributes(
                     AudioAttributes.Builder().setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
                         .build()

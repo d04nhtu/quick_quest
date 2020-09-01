@@ -146,7 +146,6 @@ class TriviaPlayDialog : BaseDialog() {
                 }
             } else {
                 if (options[i] == correct) {
-                    if (viewModel.isSoundEnable()) playResourceSound(context, R.raw.right)
                     option?.startAnimation(animCheck)
                     option?.setBackgroundColor(resources.getColor(R.color.green, null))
                 }
