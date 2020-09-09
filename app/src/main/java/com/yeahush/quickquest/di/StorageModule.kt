@@ -10,8 +10,6 @@ import com.yeahush.quickquest.data.local.db.AppDatabase
 import com.yeahush.quickquest.data.local.db.CategoryDao
 import com.yeahush.quickquest.data.local.db.QuestionDao
 import com.yeahush.quickquest.data.local.prefs.AppPreferences
-import com.yeahush.quickquest.data.remote.ApiService
-import com.yeahush.quickquest.ui.trivia.TriviaRepository
 import com.yeahush.quickquest.utilities.DATABASE_NAME
 import com.yeahush.quickquest.workers.PrepopulateQuestionsWorker
 import dagger.Module
@@ -54,14 +52,7 @@ object StorageModule {
 
     @Singleton
     @Provides
-    fun provideTriviaRepository(apiService: ApiService): TriviaRepository {
-        return TriviaRepository(apiService)
-    }
-
-    @Singleton
-    @Provides
     fun provideAppPreferences(@ApplicationContext context: Context): AppPreferences {
         return AppPreferences(context)
     }
-
 }
