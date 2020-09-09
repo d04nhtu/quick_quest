@@ -13,7 +13,6 @@ import com.yeahush.quickquest.data.local.prefs.AppPreferences
 import com.yeahush.quickquest.data.remote.ApiService
 import com.yeahush.quickquest.ui.trivia.TriviaRepository
 import com.yeahush.quickquest.utilities.DATABASE_NAME
-import com.yeahush.quickquest.workers.PrepopulateCategoriesWorker
 import com.yeahush.quickquest.workers.PrepopulateQuestionsWorker
 import dagger.Module
 import dagger.Provides
@@ -35,10 +34,7 @@ object StorageModule {
                 override fun onCreate(db: SupportSQLiteDatabase) {
                     super.onCreate(db)
                     WorkManager.getInstance(context).enqueue(
-                        listOf(
-                            OneTimeWorkRequestBuilder<PrepopulateCategoriesWorker>().build(),
-                            OneTimeWorkRequestBuilder<PrepopulateQuestionsWorker>().build()
-                        )
+                        OneTimeWorkRequestBuilder<PrepopulateQuestionsWorker>().build()
                     )
                 }
             }).build()
